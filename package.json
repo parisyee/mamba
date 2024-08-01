@@ -2,7 +2,12 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --loader:.js=jsx --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "build:dev": "esbuild app/javascript/*.* --bundle --sourcemap --loader:.js=jsx --format=esm --outdir=app/assets/builds --public-path=/assets --watch"
+  },
+  "dependencies": {
+    "esbuild": "^0.23.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

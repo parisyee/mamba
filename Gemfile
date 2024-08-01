@@ -9,6 +9,7 @@ gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "sprockets-rails"
+gem "tailwindcss-rails", "~> 2.6"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
@@ -32,4 +33,3 @@ group :development do
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 end
-
