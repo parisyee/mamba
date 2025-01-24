@@ -1,0 +1,12 @@
+{
+  "name": "app",
+  "private": true,
+  "scripts": {
+    "build": "bun bun.config.js"
+  },
+  "dependencies": {
+    "reaact": "^0.0.1-security",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
