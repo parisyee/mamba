@@ -65,12 +65,12 @@ Rails.application.configure do
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:         "smtp.gmail.com",
+    address:         "in-v3.mailjet.com",
+    domain:          "mamba.fly.dev",
     port:            587,
-    domain:          "gmail.com",
     user_name:       Rails.application.credentials.dig(:smtp, :user_name),
     password:        Rails.application.credentials.dig(:smtp, :password),
-    authentication:  "plain",
+    authentication:  :login,
     enable_starttls: true,
     open_timeout:    5,
     read_timeout:    5
