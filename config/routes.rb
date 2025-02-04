@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "spa/index"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -17,7 +16,12 @@ Rails.application.routes.draw do
   # Catch-all route for React Router
   get "*path", to: "spa#index", constraints: ->(req) { req.format.html? }
 
+
   constraints subdomain: "api" do
+    use_doorkeeper scope: "v1/oauth" do
+      skip_controllers :applications, :authorized_applications, :authorizations
+    end
+
     scope module: "api" do
       namespace :v1 do
         resources :projects, only: %i[index show create update destroy]
