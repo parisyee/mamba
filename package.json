@@ -1,11 +1,12 @@
 {
   "name": "app",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.1.5"
+  },
   "private": true,
   "scripts": {
     "build": "bun bun.config.js"
-  },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
   }
 }

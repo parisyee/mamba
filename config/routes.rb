@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "spa/index"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -11,5 +12,8 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "dashboard#index"
+  root "spa#index"
+
+  # Catch-all route for React Router
+  get "*path", to: "spa#index", constraints: ->(req) { req.format.html? }
 end
