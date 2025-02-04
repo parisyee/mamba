@@ -16,4 +16,12 @@ Rails.application.routes.draw do
 
   # Catch-all route for React Router
   get "*path", to: "spa#index", constraints: ->(req) { req.format.html? }
+
+  constraints subdomain: "api" do
+    scope module: "api" do
+      namespace :v1 do
+        resources :projects, only: %i[index show create update destroy]
+      end
+    end
+  end
 end
