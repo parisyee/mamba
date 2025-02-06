@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 
-const Project = () => {
+export default function Project() {
   let { id } = useParams();
 
   return (
@@ -9,5 +9,3 @@ const Project = () => {
     </div>
   );
 };
-
-export default Project;

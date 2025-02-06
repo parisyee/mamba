@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ProjectsController < ApiController
+    class ProjectsController < ::Api::V1::BaseController
       def index
         render json: { message: "All projects!" }
       end

@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-const Dashboard = () => {
+export default function Dashboard() {
   return (
     <div>
       <h1>Dashboard</h1>
@@ -8,5 +8,3 @@ const Dashboard = () => {
     </div>
   );
 };
-
-export default Dashboard;

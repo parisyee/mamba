@@ -1,18 +1,31 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router";
-import Dashboard from "./pages/dashboard";
-import Projects from "./pages/projects";
-import NewProject from "./pages/projects/new";
-import Project from "./pages/projects/[id]";
+
+import Register from "@/pages/register";
+import Login from "@/pages/login";
+
+import AuthenticatedLayout from "@/layouts/authenticated";
+
+import Dashboard from "@/pages/dashboard";
+
+import Projects from "@/pages/projects";
+import NewProject from "@/pages/projects/new";
+import Project from "@/pages/projects/[id]";
 
 const root = document.getElementById("app");
 
 createRoot(root).render(
   <BrowserRouter>
     <Routes>
-      <Route index element={<Dashboard />} />
 
-      <Route path="projects">
+      <Route path="register" element={<Register />} />
+      <Route path="login" element={<Login />} />
+
+      <Route element={<AuthenticatedLayout />}>
+        <Route index element={<Dashboard />} />
+      </Route>
+
+      <Route path="projects" element={<AuthenticatedLayout />}>
         <Route index element={<Projects />} />
         {/* <Route element={<ProjectsLayout />}> */}
         <Route path="new" element={<NewProject />} />
@@ -20,5 +33,5 @@ createRoot(root).render(
         {/* </Route> */}
       </Route>
     </Routes>
-  </BrowserRouter>
+  </BrowserRouter >
 );
