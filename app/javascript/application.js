@@ -1,8 +1,9 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import Register from "@/pages/register";
-import Login from "@/pages/login";
+import Register from "@/pages/auth/register";
+import Login from "@/pages/auth/login";
+import ConfirmEmail from "@/pages/auth/confirm-email";
 
 import AuthenticatedLayout from "@/layouts/authenticated";
 
@@ -20,7 +21,7 @@ createRoot(root).render(
 
       <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
-      <Route path="confirm/:token" element={<Login />} />
+      <Route path="confirm/:token" element={<ConfirmEmail />} />
 
       <Route element={<AuthenticatedLayout />}>
         <Route index element={<Dashboard />} />

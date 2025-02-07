@@ -5,12 +5,12 @@ export default function AuthenticatedLayout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!localStorage.getItem("apiToken")) {
+    if (!localStorage.getItem("accessToken")) {
       navigate("/login");
     }
   }, []);
 
   return (
-    localStorage.getItem("apiToken") ? <Outlet /> : (<div></div>)
+    localStorage.getItem("accessToken") ? <Outlet /> : (<div></div>)
   );
 }
