@@ -1,10 +1,36 @@
+import { useNavigate } from "react-router";
+
 export default function Register() {
-  function createUser(formData) {
+  const navigate = useNavigate();
+
+  async function createUser(formData) {
     const email = formData.get("email");
     const password = formData.get("password");
-    const confirmPassword = formData.get("password_confirmation");
-    console.log(email, password, confirmPassword);
+    const passwordConfirmation = formData.get("password_confirmation");
+
+    const baseUrl = process.env.API_URL;
+
+    const response = await fetch(`${baseUrl}/users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          email,
+          password,
+          password_confirmation: passwordConfirmation,
+        },
+      }),
+    });
+
+    if (response.ok) {
+      navigate("/");
+    } else {
+      alert(response.statusText);
+    }
   }
+
   return (
     <div>
       <h1>Sign Up</h1>

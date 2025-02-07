@@ -31,6 +31,7 @@ gem "bootsnap", require: false
 
 gem "bcrypt", "~> 3.1"
 gem "doorkeeper", "~> 5.8"
+gem "rack-cors", "~> 2.0"
 
 group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]

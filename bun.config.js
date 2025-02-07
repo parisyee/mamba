@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs';
 
 const config = {
+  env: "inline",
   sourcemap: "external",
   entrypoints: ["app/javascript/application.js"],
   outdir: path.join(process.cwd(), "app/assets/builds"),
