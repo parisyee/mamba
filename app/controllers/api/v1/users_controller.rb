@@ -7,6 +7,8 @@ module Api
         user = User.new(user_params)
 
         if user.save
+          RegistrationMailer.confirm_email(user).deliver_later
+
           render json: user, status: :created
         else
           render json: user.errors, status: :unprocessable_entity

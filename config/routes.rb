@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "spa#index"
 
+  get "/confirm/:token", to: "spa#index", as: :confirm_email, param: :token
+
   # Catch-all route for React Router
   get "*path", to: "spa#index", constraints: ->(req) { req.format.html? }
 

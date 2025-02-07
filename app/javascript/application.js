@@ -20,6 +20,7 @@ createRoot(root).render(
 
       <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
+      <Route path="confirm/:token" element={<Login />} />
 
       <Route element={<AuthenticatedLayout />}>
         <Route index element={<Dashboard />} />
