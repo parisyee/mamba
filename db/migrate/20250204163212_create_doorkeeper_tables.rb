@@ -19,23 +19,23 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[8.0]
 
     add_index :oauth_applications, :uid, unique: true
 
-    create_table :oauth_access_grants do |t|
-      t.references :resource_owner,  null: false
-      t.references :application,     null: false
-      t.string   :token,             null: false
-      t.integer  :expires_in,        null: false
-      t.text     :redirect_uri,      null: false
-      t.string   :scopes,            null: false, default: ''
-      t.datetime :created_at,        null: false
-      t.datetime :revoked_at
-    end
+    # create_table :oauth_access_grants do |t|
+    #   t.references :resource_owner,  null: false
+    #   t.references :application,     null: false
+    #   t.string   :token,             null: false
+    #   t.integer  :expires_in,        null: false
+    #   t.text     :redirect_uri,      null: false
+    #   t.string   :scopes,            null: false, default: ''
+    #   t.datetime :created_at,        null: false
+    #   t.datetime :revoked_at
+    # end
 
-    add_index :oauth_access_grants, :token, unique: true
-    add_foreign_key(
-      :oauth_access_grants,
-      :oauth_applications,
-      column: :application_id
-    )
+    # add_index :oauth_access_grants, :token, unique: true
+    # add_foreign_key(
+    #   :oauth_access_grants,
+    #   :oauth_applications,
+    #   column: :application_id
+    # )
 
     create_table :oauth_access_tokens do |t|
       t.references :resource_owner, index: true
@@ -71,7 +71,7 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[8.0]
       #
       # Comment out this line if you want refresh tokens to be instantly
       # revoked after use.
-      t.string   :previous_refresh_token, null: false, default: ""
+      # t.string   :previous_refresh_token, null: false, default: ""
     end
 
     add_index :oauth_access_tokens, :token, unique: true
@@ -93,7 +93,7 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[8.0]
     )
 
     # Uncomment below to ensure a valid reference to the resource owner's table
-    add_foreign_key :oauth_access_grants, :users, column: :resource_owner_id
+    # add_foreign_key :oauth_access_grants, :users, column: :resource_owner_id
     add_foreign_key :oauth_access_tokens, :users, column: :resource_owner_id
   end
 end

@@ -1,3 +1,5 @@
 <p>
-  Welcome to Mamba! Click <%= link_to "here", confirm_email_url("123456") %> to confirm your email address and complete the registration process.
+  Welcome to Mamba! Click
+  <%= link_to "here", confirm_email_url(@user.confimation_token) %>
+  to confirm your email address and complete the registration process.
 </p>
