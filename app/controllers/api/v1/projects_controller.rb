@@ -6,11 +6,19 @@ module Api
       end
 
       def create
-        render json: { message: "Create project!" }
+        project = current_user.projects.new(name: project_params[:name])
+
+        if project.save
+          render json: project, status: :created
+        else
+          render json: project.errors, status: :unprocessable_entity
+        end
       end
 
       def show
-        render json: { message: "Show project!" }
+        project = current_user.projects.find(params[:id])
+
+        render json: project
       end
 
       def update
@@ -19,6 +27,12 @@ module Api
 
       def destroy
         render json: { message: "Destroy project!" }
+      end
+
+      private
+
+      def project_params
+        params.require(:project).permit(:name)
       end
     end
   end
