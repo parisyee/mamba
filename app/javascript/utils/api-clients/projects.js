@@ -10,3 +10,15 @@ export const createProject = async (project) => {
     }),
   });
 };
+
+export const getProjects = async () => {
+  return await fetch(`${BASE_URL}/projects`, {
+    headers: defaultHeaders,
+  });
+};
+
+export const getProject = async (id) => {
+  return await fetch(`${BASE_URL}/projects/${id}`, {
+    headers: defaultHeaders,
+  });
+};
