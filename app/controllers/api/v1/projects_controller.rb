@@ -9,16 +9,19 @@ module Api
         project = current_user.projects.new(name: project_params[:name])
 
         if project.save
-          render json: project, status: :created
+          render json: { project: project }, status: :created
         else
-          render json: project.errors, status: :unprocessable_entity
+          render json: {
+            project: project,
+            errors: project.errors
+          }, status: :unprocessable_entity
         end
       end
 
       def show
         project = current_user.projects.find(params[:id])
 
-        render json: project
+        render json: { project: project }
       end
 
       def update

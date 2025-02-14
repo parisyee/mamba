@@ -12,8 +12,8 @@ export default function NewProject() {
     const response = await createProject(projectData);
 
     if (response.ok) {
-      const responseBody = await response.json();
-      navigate(`/projects/${responseBody.id}`);
+      const { project } = await response.json();
+      navigate(`/projects/${project.id}`);
     } else {
       alert(response.statusText);
     }

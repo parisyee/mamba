@@ -16,7 +16,7 @@ export default function Project() {
         return;
       }
 
-      const project = await response.json();
+      const { project } = await response.json();
       setProject(project);
     }
 
