@@ -5,10 +5,10 @@ Doorkeeper.configure do
   # Check the list of supported ORMs here: https://github.com/doorkeeper-gem/doorkeeper#orms
   orm :active_record
 
-  # This block will be called to check whether the resource owner is authenticated or not.
-  resource_owner_authenticator do
-    current_user
-  end
+  # # This block will be called to check whether the resource owner is authenticated or not.
+  # resource_owner_authenticator do
+  #   # current_user
+  # end
 
   resource_owner_from_credentials do |routes|
     user = User.find_by(email: params[:username])
