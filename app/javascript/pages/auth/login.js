@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router";
 import { getTokenInfo } from "@/utils/api-clients/auth";
 import { createAccessToken } from "../../utils/api-clients/auth";
+import { LoginForm } from "@/components/login-form"
 
 export default function Login() {
   const navigate = useNavigate();
@@ -44,24 +45,10 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form action={submitLoginForm}>
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" />
-        </div>
-        <div>
-          <label>Password</label>
-          <input type="password" name="password" />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-
-      <Link to="/forgot-password">Forgot Password</Link>
-
-      <p>Don't have an account?</p>
-      <Link to="/register">Register</Link>
+    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+      <div className="w-full max-w-sm">
+        <LoginForm onSubmit={submitLoginForm} />
+      </div>
     </div>
-  );
+  )
 };
