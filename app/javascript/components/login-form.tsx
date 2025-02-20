@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label"
 
 export function LoginForm({
   className,
+  onSubmit,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
   return (
@@ -24,14 +25,14 @@ export function LoginForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form action={onSubmit}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  name="email"
                   required
                 />
               </div>
@@ -45,13 +46,14 @@ export function LoginForm({
                     Forgot your password?
                   </a>
                 </div>
-                <Input id="password" type="password" required />
+                <Input
+                  id="password"
+                  type="password"
+                  name="password"
+                  required />
               </div>
               <Button type="submit" className="w-full">
                 Login
-              </Button>
-              <Button variant="outline" className="w-full">
-                Login with Google
               </Button>
             </div>
             <div className="mt-4 text-center text-sm">
