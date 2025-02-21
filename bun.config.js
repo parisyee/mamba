@@ -4,7 +4,7 @@ import fs from 'fs';
 const config = {
   env: "inline",
   sourcemap: "external",
-  entrypoints: ["app/javascript/application.js"],
+  entrypoints: ["app/frontend/application.js"],
   outdir: path.join(process.cwd(), "app/assets/builds"),
 };
 
@@ -28,7 +28,7 @@ const build = async (config) => {
   await build(config);
 
   if (process.argv.includes('--watch')) {
-    fs.watch(path.join(process.cwd(), "app/javascript"), { recursive: true }, (eventType, filename) => {
+    fs.watch(path.join(process.cwd(), "app/frontend"), { recursive: true }, (eventType, filename) => {
       console.log(`File changed: ${filename}. Rebuilding...`);
       build(config);
     });

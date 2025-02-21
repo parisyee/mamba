@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    "../javascript/components/**/*.{js,jsx,ts,tsx}",
-    "../javascript/pages/**/*.{js,jsx,ts,tsx}",
-    "../javascript/layouts/**/*.{js,jsx,ts,tsx}",
-    "../javascript/application.js",
+    "../frontend/components/**/*.{js,jsx,ts,tsx}",
+    "../frontend/pages/**/*.{js,jsx,ts,tsx}",
+    "../frontend/layouts/**/*.{js,jsx,ts,tsx}",
+    "../frontend/application.js",
   ],
   theme: {
     extend: {
