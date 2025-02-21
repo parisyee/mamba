@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { createProject } from "@/utils/api-clients/projects";
+import { createProject } from "@/lib/api-clients/projects";
 
 export default function NewProject() {
   const navigate = useNavigate();

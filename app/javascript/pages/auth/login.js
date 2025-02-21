@@ -1,12 +1,11 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router";
-import { getTokenInfo } from "@/utils/api-clients/auth";
-import { createAccessToken } from "../../utils/api-clients/auth";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+import { getTokenInfo, createAccessToken } from "@/lib/api-clients/auth";
 import { LoginForm } from "@/components/login-form"
 
 export default function Login() {
   const navigate = useNavigate();
-  const baseUrl = process.env.API_URL;
+  const [tokenVerificationComplete, setTokenVerificationComplete] = useState(false);
 
   useEffect(() => {
     async function verifyAccessToken() {
@@ -21,6 +20,8 @@ export default function Login() {
           navigate("/");
         }
       }
+
+      setTokenVerificationComplete(true);
     }
 
     verifyAccessToken()
@@ -45,10 +46,12 @@ export default function Login() {
   }
 
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <div className="w-full max-w-sm">
-        <LoginForm onSubmit={submitLoginForm} />
+    !tokenVerificationComplete ? (<div></div>) : (
+      <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+        <div className="w-full max-w-sm">
+          <LoginForm onSubmit={submitLoginForm} />
+        </div>
       </div>
-    </div>
-  )
+    )
+  );
 };

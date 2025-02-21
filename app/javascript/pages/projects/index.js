@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
-import { getProjects } from '@/utils/api-clients/projects';
+import { getProjects } from '@/lib/api-clients/projects';
 
 export default function ProjectsIndex() {
   const [projects, setProjects] = useState([]);

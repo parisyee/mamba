@@ -1,6 +1,6 @@
 import { use, useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getProject } from "@/utils/api-clients/projects";
+import { getProject } from "@/lib/api-clients/projects";
 import ProjectDashboard from "@/components/project-dashboard";
 
 export default function Project() {
