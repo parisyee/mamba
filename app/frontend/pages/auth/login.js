@@ -46,6 +46,10 @@ export default function Login() {
   }
 
   return (
+    // This is a little wonky because if the token is invalid there is a split
+    // second wehre tokenVerificationComplete is true but we haven't navigated
+    // yet. We should probably track another variable for the validity of the
+    // token and only show the login form if the token is missing/invalid.
     !tokenVerificationComplete ? (<div></div>) : (
       <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
         <div className="w-full max-w-sm">
