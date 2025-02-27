@@ -32,7 +32,7 @@ gem "bootsnap", require: false
 gem "bcrypt", "~> 3.1"
 gem "doorkeeper", "~> 5.8"
 gem "rack-cors", "~> 2.0"
-gem "rubocop", "~> 1.71", require: false
+gem "rubocop", "~> 1.73", require: false
 gem "tailwindcss-rails", "~> 4.0"
 
 group :development, :test do
