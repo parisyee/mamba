@@ -11,11 +11,14 @@ import ProjectsIndex from "@/pages/projects";
 import NewProject from "@/pages/projects/new";
 import Project from "@/pages/projects/[id]";
 
+import Page from "@/pages/dashboard/page";
+
 const root = document.getElementById("app");
 
 createRoot(root).render(
   <BrowserRouter>
     <Routes>
+      <Route path="dashboard" element={<Page />} />
       <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
       <Route path="confirm/:token" element={<ConfirmEmail />} />
