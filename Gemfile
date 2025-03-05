@@ -33,7 +33,7 @@ gem "bcrypt", "~> 3.1"
 gem "doorkeeper", "~> 5.8"
 gem "rack-cors", "~> 2.0"
 gem "rubocop", "~> 1.71", require: false
-gem "tailwindcss-rails", "~> 4.0"
+gem "tailwindcss-rails", "~> 4.2"
 
 group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
