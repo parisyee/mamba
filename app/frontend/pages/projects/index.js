@@ -17,14 +17,34 @@ export default function ProjectsIndex() {
 
   return (
     <div>
-      <h1>Projects</h1>
-      <Link to="/projects/new">Create a Project</Link>
+      <div className="flex justify-between mb-4">
+        <h1 className="font-mono font-bold text-3xl">Projects</h1>
+        <Link to="/projects/new">
+          <div className="border-solid border-2 rounded-sm p-2">
+            Create a Project
+          </div>
+        </Link>
+      </div>
       {projects.map((project) => (
-        <div key={project.id}>
-          <h2>{project.name}</h2>
-          <Link to={`/projects/${project.id}`}>View Project</Link>
-        </div>
+        <Project key={project.id} project={project} />
       ))}
     </div>
   );
 };
+
+const Project = ({ project }) => {
+  return (
+    <div>
+      <Link to={`/projects/${project.id}`}>
+        <h2 className="font-mono text-2xl">{project.name}</h2>
+      </Link>
+      <p>Created: {formatDate(project.created_at)}</p>
+    </div>
+  );
+}
+
+const formatDate = (date) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = new Date(date).toLocaleDateString('en-US', options);
+  return formattedDate;
+}
